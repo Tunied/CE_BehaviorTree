@@ -1,18 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CE_BehaviourTree : MonoBehaviour
+public class CE_BehaviourTree
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool IsRestartWhenFinish;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void Start() { }
 }
