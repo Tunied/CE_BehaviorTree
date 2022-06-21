@@ -2,7 +2,7 @@ namespace Plugins.CE_BehaviorTree.Runtime
 {
     public interface I_CE_BT_Condition
     {
-        CE_BT_ConditionExecutor Holder { set; }
+        CE_BT_Condition_Executor Holder { set; }
 
         /// <summary>
         /// 在Executor返回结果之前调用该函数,并且传入本次Executor返回的结果

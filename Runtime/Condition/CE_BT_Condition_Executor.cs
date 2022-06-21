@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Plugins.CE_BehaviorTree.Runtime
 {
-    public class CE_BT_ConditionExecutor : I_CE_BT_Node
+    public class CE_BT_Condition_Executor : I_CE_BT_Node
     {
         public I_CE_BT_Node_WithChild Parent { get; }
 
