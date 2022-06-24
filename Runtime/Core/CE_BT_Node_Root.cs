@@ -1,7 +1,14 @@
+using System.Collections.Generic;
+
 namespace Plugins.CE_BehaviorTree.Runtime
 {
     public class CE_BT_Node_Root : I_CE_BT_Node_WithChild
     {
+        /// <summary>
+        /// 全部的Child节点,用于最后的清理
+        /// </summary>
+        public List<I_CE_BT_Node> AllChildNodeList;
+
         /// <summary>
         /// 当前正在执行中,还没有返回结果的节点
         /// - 因为没有Parallel,所以同一时间只会有一个节点Running
@@ -16,9 +23,13 @@ namespace Plugins.CE_BehaviorTree.Runtime
 
         public void OnTrigger() { }
 
+        public void OnEntireTreeFinish() { }
+
         public void OnChildFinish(I_CE_BT_Node _node, CE_BT_Config.CE_BT_State _finishState)
         {
             //TODO:通知BT当前执行结束.
+
+            AllChildNodeList.ForEach(node => node.OnEntireTreeFinish());
         }
 
 

@@ -8,7 +8,7 @@ namespace Plugins.CE_BehaviorTree.Runtime
     /// - 任何一个节点返回Failure则直接返回Failure
     /// - 所有节点执行完毕则返回Success
     /// </summary>
-    public class CE_BT_Sequencer :I_CE_BT_Node_WithChild
+    public class CE_BT_Sequencer : I_CE_BT_Node_WithChild
     {
         public I_CE_BT_Node_WithChild Parent { get; private set; }
 
@@ -23,6 +23,8 @@ namespace Plugins.CE_BehaviorTree.Runtime
         public void OnReset() { mNextLoopIndex = 0; }
 
         public void OnTrigger() { TryToTriggerNext(); }
+
+        public void OnEntireTreeFinish() { mNextLoopIndex = 0; }
 
         public void OnChildFinish(I_CE_BT_Node _node, CE_BT_Config.CE_BT_State _finishState)
         {

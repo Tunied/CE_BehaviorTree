@@ -17,15 +17,31 @@ namespace Plugins.CE_BehaviorTree.Runtime
         public bool IsObserverAbort;
 
         /// <summary>
-        /// 打断后跳转到的节点GUID
+        /// 打断后跳转到的节点
         /// </summary>
-        public string AbortToNode_GUID;
+        public I_CE_BT_Node AbortToNode;
+
+        public CE_BT_Condition_AbortAgent AbortAgent;
+
+        public bool IsUseTickForCheckAbort;
+
+        public float TickAbortCheckGap;
 
         public void OnTrigger()
         {
             //TODO:检查一遍所有的Condition 按返回策略返回
         }
 
+        public void OnEntireTreeFinish()
+        {
+            //TODO:取消注册Tick监听
+        }
+
+
+        /// <summary>
+        /// Tick检测可否Abort当前RunningNode
+        /// </summary>
+        /// <returns></returns>
         public bool Tick_AbortChecker() { return false; }
     }
 }
